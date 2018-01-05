@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
+    @user.name = params[:user][:name] if params[:user] && params[:user][:name]
+    @user.email = params[:user][:email] if params[:user] && params[:user][:email]
   end
 
   def create
@@ -17,5 +19,11 @@ class UsersController < ApplicationController
       flash.now[:alert] = "There was an error creating your account. Please try again."
       render :new
     end
+  end
+
+  def confirm
+    @user = User.new
+    @user.name = params[:user][:name]
+    @user.email = params[:user][:email]
   end
 end
