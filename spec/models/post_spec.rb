@@ -73,4 +73,11 @@ RSpec.describe Post, type: :model do
       end
     end
   end
+
+  describe "#create_vote" do
+    it "defaults post votes to 1 on creation" do
+      post
+      expect(post.points).to eq(1)
+    end
+  end
 end
