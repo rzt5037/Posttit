@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>"<%= @post.title %> will now be tracked."</h1>
+    <small>
+      By: <%= @post.user.name %>
+    </small>
+    <p>
+      This post will now recieve email notifications on comments.
+    </p>
+    <p>
+      <%= link_to "View Post on site", topic_post_url(@post.topic, @post) %>
+    </p>
+  </body>
+</html>

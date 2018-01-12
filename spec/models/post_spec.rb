@@ -74,4 +74,11 @@ RSpec.describe Post, type: :model do
       end
     end
   end
+
+  describe "#create_favorite" do
+    it "defaults post to be favorited on create" do
+      post
+      expect(user.favorite_for(post)).to_not be_nil
+    end
+  end
 end
