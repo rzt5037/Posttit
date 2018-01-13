@@ -1,0 +1,20 @@
+<div class="media">
+  <div class="media-body">
+    <h3>User Favorites:</h3>
+    <div>
+      <small>
+        <% @user.favorites.each do |f| %>
+          Post: <%= f.post.title %>
+          <% avatar_url = f.post.user.avatar_url(32) %>
+          <% if avatar_url %>
+            <div>
+              By: <%= image_tag avatar_url, class: 'media-object' %>
+            </div>
+          <% end %>
+          Votes: <%= f.post.votes.count %>
+          Comments: <%= f.post.comments.count %></br></br>
+        <% end %>
+      </small>
+    </div>
+  </div>
+</div>

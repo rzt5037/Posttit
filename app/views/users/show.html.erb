@@ -16,11 +16,22 @@
         </small>
       </div>
     </div>
+
+    <h2>Posts</h2>
+      <% if has_made_posts?(@user) %>
+        <%= render @user.posts %>
+      <% else %>
+        <p><%= @user.name %> has not submitted any posts yet.</p>
+      <% end %>
+
+    <h2>Comments</h2>
+      <% if has_made_comments?(@user) %>
+        <%= render @user.comments %>
+      <% else %>
+        <p><%= @user.name %> has not submitted any comments yet.</p>
+      <% end %>
+  </div>
+  <div class="col-md-4">
+    <%= render partial: 'favorites/fave', locals: { user: @user } %>
   </div>
 </div>
-
-<h2>Posts</h2>
-<%= render @user.posts %>
-
-<h2>Comments</h2>
-<%= render @user.comments %>
